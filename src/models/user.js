@@ -7,12 +7,18 @@ const userSchema = Schema(
     firstname: { type: String, required: true, min: 3, max: 20, trim: true },
     lastname: { type: String, required: true, min: 3, max: 20, trim: true },
     email: { type: String, required: true, unique: true },
-    mobile: { type: Number, required: true, unique: true, max: 10, min: 10 },
+    mobile: {
+      type: Number,
+      required: true,
+      unique: true,
+      max: 9999999999,
+      min: 1000000000,
+    },
     password: { type: String, required: true },
     role: {
       type: String,
       enum: ["member", "admin", "trainer"],
-      default: "user",
+      default: "member",
     },
   },
   { timestamps: true, versionKey: false }
